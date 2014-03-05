@@ -30,10 +30,8 @@ function getRecentArt(userName) {
 };
 
 function getGroupMembers() {
-  //   alert('hi there');
-  //  var groupMembers = new Array();
-  var theGroup = "WorkForce Software";
   var theGroup = "350 groups";
+  var theGroup = "WorkForce Software";
   $('.groupName').html(theGroup+" @ Last.fm");
 
   var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key=e63ca8d5b65415a4ee36b32260dce956&group="+theGroup+"&format=json";
@@ -73,6 +71,6 @@ function getGroupMembers() {
 $(document).ready(function() {
 
   var members = getGroupMembers();
-//  setInterval(getGroupMembers, 10000);
+  setInterval(getGroupMembers, 60000);
 
 });
