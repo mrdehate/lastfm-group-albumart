@@ -84,10 +84,4 @@ function getGroupMembers() {
   return true;
 };
 
-
-$(document).ready(function() {
-
-  var members = getGroupMembers();
-  setInterval(getGroupMembers, 60000);
-
-});
+setInterval(getGroupMembers, 60000);
