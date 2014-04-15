@@ -6,7 +6,7 @@ function getRecentArt(userName) {
   $.getJSON(url, function(data) {
 //    $('.output').append(JSON.stringify(data) + "<br /><br />");
 
-    if (data.recenttracks == undefined || data.recenttracks.track == undefined) {
+    if (data.recenttracks === undefined || data.recenttracks.track === undefined) {
       return 0;
     }
 
@@ -18,13 +18,13 @@ function getRecentArt(userName) {
 */
 
     var artist = data.recenttracks.track[0].artist["#text"];
-    var song = data.recenttracks.track[0]["name"];
+    var song = data.recenttracks.track[0].name;
     var cover = data.recenttracks.track[0].image[3]["#text"];
 
     if (data.recenttracks.track[0]["@attr"] &&
-        data.recenttracks.track[0]["@attr"]["nowplaying"] == "true") {
+        data.recenttracks.track[0]["@attr"].nowplaying === "true") {
 
-      if (cover == "") {
+      if (cover === "") {
         cover = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cover_.jpg";
       }
       var htmlString = "";
@@ -41,7 +41,7 @@ function getRecentArt(userName) {
   });
 
   return true;
-};
+}
 
 function getGroupMembers() {
 //  var theGroup = "350 groups";
@@ -55,10 +55,8 @@ function getGroupMembers() {
    
 //    $('.output').append(JSON.stringify(data) + "<br /><br />");
 
-    var users = data.members.user;
-    var groupMembers = new Array();    
+    var groupMembers = new Array();
 
-    $('.cover').html("");
     
     var i=0;
 
@@ -67,21 +65,20 @@ function getGroupMembers() {
       i++;
     }
 
+    $('.cover').html("");
+
     var j=0;
     while (groupMembers[j]) {
-      var hi = getRecentArt(groupMembers[j]);
+      getRecentArt(groupMembers[j]);
       j++;
     }
 
     var time = new Date();
-    h = time.getHours(); 
-    m = time.getMinutes();
-    s = time.getSeconds();
-    $('.updateTime').html(h+":"+m+":"+s);
-    
+    $('.updateTime').html(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+
   });
 
   return true;
-};
+}
 
 setInterval(getGroupMembers, 60000);
