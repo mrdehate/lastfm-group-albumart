@@ -19,7 +19,8 @@ header {
   background: linear-gradient(white, #bbbbbb); }
   header .groupName {
     font-weight: bold;
-    font-size: 20px; }
+    font-size: 20px;
+    text-shadow: 1px 1px 1px white; }
   header .updateTime {
     float: right;
     margin-right: 10px; }
