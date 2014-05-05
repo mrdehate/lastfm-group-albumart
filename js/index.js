@@ -47,7 +47,7 @@ function getGroupMembers() {
 //  var theGroup = "350 groups";
 //  var theGroup = "The Musical Elitists";
   var theGroup = "WorkForce Software";
-  $('.groupName').html(theGroup+" @ Last.fm");
+//  $('.groupName').html(theGroup+" @ Last.fm");
 
   var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key=e63ca8d5b65415a4ee36b32260dce956&group="+theGroup+"&format=json";
 
