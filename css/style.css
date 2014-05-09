@@ -20,19 +20,20 @@ header {
   height: 40px;
   line-height: 40px;
   text-align: center;
+  background: -webkit-linear-gradient(white, #bbbbbb);
   background: linear-gradient(#ffffff, #bbbbbb); }
-  /* line 28, ../scss/style.scss */
+  /* line 29, ../scss/style.scss */
   header .groupName {
     font-weight: bold;
     font-size: 20px;
     text-shadow: 1px 1px 1px white; }
-  /* line 33, ../scss/style.scss */
+  /* line 34, ../scss/style.scss */
   header .updateTime {
     float: right;
     margin-right: 10px;
     text-shadow: 1px 1px 1px white; }
 
-/* line 40, ../scss/style.scss */
+/* line 41, ../scss/style.scss */
 footer {
   position: absolute;
   width: 100%;
@@ -41,27 +42,27 @@ footer {
   bottom: 20px;
   font-size: 24px; }
 
-/* line 50, ../scss/style.scss */
+/* line 51, ../scss/style.scss */
 .cover .entry {
   width: 300px;
   float: left;
   margin: 5px;
   padding: 10px;
   position: relative; }
-/* line 57, ../scss/style.scss */
+/* line 58, ../scss/style.scss */
 .cover .imgArt {
   width: 290px;
   border: 5px solid black;
   background-color: black; }
 
-/* line 63, ../scss/style.scss */
+/* line 64, ../scss/style.scss */
 .user {
   text-align: center;
   background-color: black;
   padding: 5px;
   border: 5px solid black; }
 
-/* line 70, ../scss/style.scss */
+/* line 71, ../scss/style.scss */
 .artist, .song {
   position: absolute;
   left: 4px;
@@ -70,11 +71,11 @@ footer {
   padding: 5px 10px 5px 10px;
   background-color: #ccc; }
 
-/* line 79, ../scss/style.scss */
+/* line 80, ../scss/style.scss */
 .song {
   bottom: 0px; }
 
-/* line 83, ../scss/style.scss */
+/* line 84, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
