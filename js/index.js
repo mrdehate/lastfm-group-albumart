@@ -1,7 +1,14 @@
+//Global Variables yay!
+var LASTFM_API_KEY = "e63ca8d5b65415a4ee36b32260dce956";
+//  var theGroup = "350 groups";
+//  var theGroup = "The Musical Elitists";
+var THE_GROUP = "WorkForce Software";
+var BLANK_COVER_URL = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cover_.jpg";
+var REFRESH_INTERVAL = 60000;
 
 
 function getRecentArt(userName) {
-  var url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+userName+"&limit=2&api_key=e63ca8d5b65415a4ee36b32260dce956&format=json";
+  var url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+userName+"&limit=2&api_key="+LASTFM_API_KEY+"&format=json";
 
   $.getJSON(url, function(data) {
 //    $('.output').append(JSON.stringify(data) + "<br /><br />");
@@ -24,15 +31,13 @@ function getRecentArt(userName) {
     if (data.recenttracks.track[0]["@attr"] &&
         data.recenttracks.track[0]["@attr"].nowplaying === "true") {
 
-      if (cover === "") {
-        cover = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cover_.jpg";
-      }
+
       var htmlString = "";
       htmlString = "<div class='entry'>";
       htmlString += "<div class='user'>"+userName+"</div>";
       htmlString += "<div class='artist'>"+artist+"</div>";
       htmlString += "<div class='song'>"+song+"</div>";
-      htmlString += "<img class='imgArt' src='"+cover+"' /><br />";
+      htmlString += "<img class='imgArt' src='"+getCoverArt(cover, artist)+"' /><br />";
       htmlString += "</div>";
       $('.cover').append(htmlString);
       //  $('.output').html(JSON.stringify(data));
@@ -43,13 +48,37 @@ function getRecentArt(userName) {
   return true;
 }
 
+function getCoverArt(coverIn, artist) {
+//@TODO: move blankCoverURL out to a config file somewhere
+
+  var cover = "";
+
+  if (coverIn === "") {
+    $.ajax({
+      url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+artist+"&api_key="+LASTFM_API_KEY+"&format=json",
+      async: false
+    }).done(function( a1 ) {
+      try{
+        cover = a1.artist.image[2]["#text"];
+      }
+      catch (meh) {
+          cover = BLANK_COVER_URL;
+      }
+    });
+    if (cover === "") {
+      cover = BLANK_COVER_URL;
+    }
+  } else {
+    cover = coverIn;
+  }
+
+  return cover;
+}
+
 function getGroupMembers() {
-//  var theGroup = "350 groups";
-//  var theGroup = "The Musical Elitists";
-  var theGroup = "WorkForce Software";
 //  $('.groupName').html(theGroup+" @ Last.fm");
 
-  var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key=e63ca8d5b65415a4ee36b32260dce956&group="+theGroup+"&format=json";
+  var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+LASTFM_API_KEY+"&group="+THE_GROUP+"&format=json";
 
   $.getJSON(url, function(data) {
    
@@ -81,4 +110,4 @@ function getGroupMembers() {
   return true;
 }
 
-setInterval(getGroupMembers, 60000);
+setInterval(getGroupMembers, REFRESH_INTERVAL);
