@@ -2,5 +2,10 @@ For a given last.fm group, gets all the members, and displays cover art for whoe
 
 Also, the code isn’t really great. Yet.
 
-Original CodePen at: http://codepen.io/mrdehate/pen/hmjep.
+Here's how it works:
 
+* Get all the members of a given Last.fm group
+* For each member of the group, gets the last song that they have scrobbled
+** If this song is "now playing", display it on the screen
+*** If the album art isn't found for this track, do another API call to get the default artist art
+* Repeat every 60 seconds
