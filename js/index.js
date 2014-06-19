@@ -35,8 +35,8 @@ function getRecentArt(userName) {
       var htmlString = "";
       htmlString = "<div class='entry'>";
       htmlString += "<div class='user'>"+userName+"</div>";
-      htmlString += "<div class='artist'>"+artist+"</div>";
-      htmlString += "<div class='song'>"+song+"</div>";
+      htmlString += "<div class='artistOuter'><span class='artist'>"+artist+"</span></div>";
+      htmlString += "<div class='songOuter'><span class='song'>"+song+"</span></div>";
       htmlString += "<img class='imgArt' src='"+getCoverArt(cover, artist)+"' /><br />";
       htmlString += "</div>";
       $('.cover').append(htmlString);

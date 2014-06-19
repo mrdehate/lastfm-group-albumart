@@ -68,16 +68,24 @@ footer {
   border:5px solid $bg-color;
 }
 
-.artist, .song {
+.artistOuter, .songOuter {
   position:absolute;
   left:4px;
   bottom:32px;
-  color:black;
-  padding:5px 10px 5px 10px;
-  background-color:#ccc;
+  width:300px;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  padding:5px 10px 5px 0px;
 }
 
-.song {
+.artist, .song {
+  color:black;
+  background-color:#ccc;
+  padding:5px 10px 5px 10px;
+}
+
+.songOuter {
   bottom:0px;  
 }
 

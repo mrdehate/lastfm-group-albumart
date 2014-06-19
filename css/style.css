@@ -63,19 +63,27 @@ footer {
   border: 5px solid black; }
 
 /* line 71, ../scss/style.scss */
-.artist, .song {
+.artistOuter, .songOuter {
   position: absolute;
   left: 4px;
   bottom: 32px;
-  color: black;
-  padding: 5px 10px 5px 10px;
-  background-color: #ccc; }
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px 10px 5px 0px; }
 
-/* line 80, ../scss/style.scss */
-.song {
+/* line 82, ../scss/style.scss */
+.artist, .song {
+  color: black;
+  background-color: #ccc;
+  padding: 5px 10px 5px 10px; }
+
+/* line 88, ../scss/style.scss */
+.songOuter {
   bottom: 0px; }
 
-/* line 84, ../scss/style.scss */
+/* line 92, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
