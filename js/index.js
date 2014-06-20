@@ -1,10 +1,11 @@
 //Global Variables yay!
 var LASTFM_API_KEY = "e63ca8d5b65415a4ee36b32260dce956";
-//  var theGroup = "350 groups";
-//  var theGroup = "The Musical Elitists";
+ // var THE_GROUP = "350 groups";
+ // var THE_GROUP = "The Musical Elitists";
 var THE_GROUP = "WorkForce Software";
 var BLANK_COVER_URL = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cover_.jpg";
 var REFRESH_INTERVAL = 60000;
+var DAY_REFRESH_INTERVAL = 86400000;
 
 
 function getRecentArt(userName) {
@@ -110,4 +111,37 @@ function getGroupMembers() {
   return true;
 }
 
+function getArtistChart() {
+//  $('.groupName').html(theGroup+" @ Last.fm");
+
+  var url = "http://ws.audioscrobbler.com/2.0/?method=group.getweeklyartistchart&api_key="+LASTFM_API_KEY+"&group="+THE_GROUP+"&format=json";
+
+  $.getJSON(url, function(data) {
+   
+//    $('.output').append(JSON.stringify(data) + "<br /><br />");
+
+    var topArtists = new Array();
+    
+    var i=0;
+
+    while (data.weeklyartistchart.artist[i]) {
+      topArtists[i] = data.weeklyartistchart.artist[i].name;
+      i++;
+    }
+
+    $('.artistChart ol').html("");
+
+    var j;
+
+    for (j = 0; j < 10; j++) { 
+      $('.artistChart ol').append("<li>"+topArtists[j]+"</li>");
+    }
+
+  });
+
+  return true;
+}
+
 setInterval(getGroupMembers, REFRESH_INTERVAL);
+getArtistChart();
+setInterval(getArtistChart, DAY_REFRESH_INTERVAL);

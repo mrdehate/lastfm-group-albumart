@@ -100,3 +100,25 @@ footer {
   font-size:50px;
   text-align:center;
 }
+
+.artistChart {
+  width:250px;
+  position:absolute;
+  right:0;
+  top:50px;
+  color:white;
+  background-color:#333;
+  margin-right:10px;
+}
+
+.artistChart span {
+  font-size:18px;
+  text-align: center;
+  display:block;
+  margin-top:10px;
+}
+
+.artistChart ol {
+  margin-left:35px;
+  margin-bottom:10px;
+}
