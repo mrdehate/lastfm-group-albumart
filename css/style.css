@@ -33,36 +33,42 @@ header {
     margin-right: 10px;
     text-shadow: 1px 1px 1px white; }
 
-/* line 41, ../scss/style.scss */
-footer {
+/* line 43, ../scss/style.scss */
+footer .todayMessage {
   position: absolute;
   width: 100%;
   text-align: center;
   color: white;
   bottom: 20px;
   font-size: 24px; }
+/* line 52, ../scss/style.scss */
+footer .stats {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: #555; }
 
-/* line 51, ../scss/style.scss */
+/* line 61, ../scss/style.scss */
 .cover .entry {
   width: 300px;
   float: left;
   margin: 5px;
   padding: 10px;
   position: relative; }
-/* line 58, ../scss/style.scss */
+/* line 68, ../scss/style.scss */
 .cover .imgArt {
   width: 290px;
   border: 5px solid black;
   background-color: black; }
 
-/* line 64, ../scss/style.scss */
+/* line 74, ../scss/style.scss */
 .user {
   text-align: center;
   background-color: black;
   padding: 5px;
   border: 5px solid black; }
 
-/* line 71, ../scss/style.scss */
+/* line 81, ../scss/style.scss */
 .artistOuter, .songOuter {
   position: absolute;
   left: 4px;
@@ -73,17 +79,17 @@ footer {
   overflow: hidden;
   padding: 5px 10px 5px 0px; }
 
-/* line 82, ../scss/style.scss */
+/* line 92, ../scss/style.scss */
 .artist, .song {
   color: black;
   background-color: #ccc;
   padding: 5px 10px 5px 10px; }
 
-/* line 88, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 .songOuter {
   bottom: 0px; }
 
-/* line 92, ../scss/style.scss */
+/* line 102, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
@@ -95,7 +101,7 @@ footer {
   font-size: 50px;
   text-align: center; }
 
-/* line 104, ../scss/style.scss */
+/* line 114, ../scss/style.scss */
 .artistChart {
   width: 250px;
   position: absolute;
@@ -104,15 +110,13 @@ footer {
   color: white;
   background-color: #333;
   margin-right: 10px; }
-
-/* line 114, ../scss/style.scss */
-.artistChart span {
-  font-size: 18px;
-  text-align: center;
-  display: block;
-  margin-top: 10px; }
-
-/* line 121, ../scss/style.scss */
-.artistChart ol {
-  margin-left: 35px;
-  margin-bottom: 10px; }
+  /* line 123, ../scss/style.scss */
+  .artistChart span {
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    margin-top: 10px; }
+  /* line 130, ../scss/style.scss */
+  .artistChart ol {
+    margin-left: 35px;
+    margin-bottom: 10px; }

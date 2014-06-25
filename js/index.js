@@ -7,7 +7,14 @@ var BLANK_COVER_URL = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cov
 var REFRESH_INTERVAL = 60000;
 var DAY_REFRESH_INTERVAL = 86400000;
 
+var gApiCallCounter = 0; 
+var gStartupTime = Date.now();
 
+/**
+*
+* For a given user, actually outputs the HTML for showing their song.
+* 
+*/
 function getRecentArt(userName) {
   var url = "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user="+userName+"&limit=2&api_key="+LASTFM_API_KEY+"&format=json";
 
@@ -17,13 +24,6 @@ function getRecentArt(userName) {
     if (data.recenttracks === undefined || data.recenttracks.track === undefined) {
       return 0;
     }
-
-/*if (data && data.recenttracks && data.recenttracks.track && data.recenttracks.track[0] && data.recenttracks.track[0].artist && data.recenttracks.track[0].artist["#text"]) {
-  console.log("yes");
-} else {
-  console.log("no:"+userName+" | "+JSON.stringify(data));
-}
-*/
 
     var artist = data.recenttracks.track[0].artist["#text"];
     var song = data.recenttracks.track[0].name;
@@ -44,11 +44,17 @@ function getRecentArt(userName) {
       //  $('.output').html(JSON.stringify(data));
     }
 
+    gApiCallCounter++;
   });
 
   return true;
 }
 
+/**
+*
+* If there isn't cover art for a song supplied, tries to get something else interesting to show
+* 
+*/
 function getCoverArt(coverIn, artist) {
 //@TODO: move blankCoverURL out to a config file somewhere
 
@@ -65,6 +71,7 @@ function getCoverArt(coverIn, artist) {
       catch (meh) {
           cover = BLANK_COVER_URL;
       }
+          gApiCallCounter++;
     });
     if (cover === "") {
       cover = BLANK_COVER_URL;
@@ -76,7 +83,50 @@ function getCoverArt(coverIn, artist) {
   return cover;
 }
 
-function getGroupMembers() {
+/**
+*
+* Displays chart of the top artists
+* 
+*/
+function getArtistChart() {
+//  $('.groupName').html(theGroup+" @ Last.fm");
+
+  var url = "http://ws.audioscrobbler.com/2.0/?method=group.getweeklyartistchart&api_key="+LASTFM_API_KEY+"&group="+THE_GROUP+"&format=json";
+
+  $.getJSON(url, function(data) {
+   
+//    $('.output').append(JSON.stringify(data) + "<br /><br />");
+
+    var topArtists = new Array();
+    
+    var i=0;
+
+    while (data.weeklyartistchart.artist[i]) {
+      topArtists[i] = data.weeklyartistchart.artist[i].name;
+      i++;
+    }
+
+    $('.artistChart ol').html("");
+
+    var j;
+
+    for (j = 0; j < 15 ; j++) { 
+      $('.artistChart ol').append("<li>"+topArtists[j]+"</li>");
+    }
+
+    gApiCallCounter++;
+
+  });
+
+  return true;
+}
+
+/**
+*
+* Main function driving album art display
+* 
+*/
+function displayAlbumArt() {
 //  $('.groupName').html(theGroup+" @ Last.fm");
 
   var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+LASTFM_API_KEY+"&group="+THE_GROUP+"&format=json";
@@ -106,42 +156,24 @@ function getGroupMembers() {
     var time = new Date();
     $('.updateTime').html(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
 
-  });
-
-  return true;
-}
-
-function getArtistChart() {
-//  $('.groupName').html(theGroup+" @ Last.fm");
-
-  var url = "http://ws.audioscrobbler.com/2.0/?method=group.getweeklyartistchart&api_key="+LASTFM_API_KEY+"&group="+THE_GROUP+"&format=json";
-
-  $.getJSON(url, function(data) {
-   
-//    $('.output').append(JSON.stringify(data) + "<br /><br />");
-
-    var topArtists = new Array();
-    
-    var i=0;
-
-    while (data.weeklyartistchart.artist[i]) {
-      topArtists[i] = data.weeklyartistchart.artist[i].name;
-      i++;
-    }
-
-    $('.artistChart ol').html("");
-
-    var j;
-
-    for (j = 0; j < 10; j++) { 
-      $('.artistChart ol').append("<li>"+topArtists[j]+"</li>");
-    }
+    gApiCallCounter++;
 
   });
 
   return true;
 }
 
-setInterval(getGroupMembers, REFRESH_INTERVAL);
+/**
+*
+* Update the api counter to list API calls per second
+* 
+*/
+function updateApiCounter() {
+  $(".stats").html("API/sec: " + (gApiCallCounter/((Date.now() - gStartupTime)/1000)).toFixed(2));
+}
+
+setInterval(displayAlbumArt, REFRESH_INTERVAL);
+setInterval(updateApiCounter, REFRESH_INTERVAL);
+
 getArtistChart();
 setInterval(getArtistChart, DAY_REFRESH_INTERVAL);
