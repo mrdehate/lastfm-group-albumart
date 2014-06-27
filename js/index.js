@@ -3,7 +3,7 @@ var LASTFM_API_KEY = "e63ca8d5b65415a4ee36b32260dce956";
  // var THE_GROUP = "350 groups";
  // var THE_GROUP = "The Musical Elitists";
 var THE_GROUP = "WorkForce Software";
-var BLANK_COVER_URL = "http://upload.wikimedia.org/wikipedia/commons/d/d7/No_Cover_.jpg";
+var BLANK_COVER_URL = "http://upload.wikimedia.org/wikipedia/commons/b/b9/No_Cover.jpg";
 var REFRESH_INTERVAL = 60000;
 var DAY_REFRESH_INTERVAL = 86400000;
 
