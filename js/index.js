@@ -120,7 +120,12 @@ function getArtistChart() {
     var i=0;
 
     while (data.weeklyartistchart.artist[i]) {
-      topArtists[i] = data.weeklyartistchart.artist[i].name;
+      console.log(data.weeklyartistchart.artist[i].playcount);
+      if(data.weeklyartistchart.artist[i].playcount && data.weeklyartistchart.artist[i].playcount > 1) {
+        topArtists[i] = data.weeklyartistchart.artist[i].name;
+      } else {
+        break;
+      }
       i++;
     }
 
@@ -128,7 +133,11 @@ function getArtistChart() {
 
     var j;
 
-    for (j = 0; j < 15 ; j++) { 
+    for (j = 0; j < 25 ; j++) { 
+      if (topArtists[j] === undefined) {
+        break;
+      }
+
       $('.artistChart ol').append("<li>"+topArtists[j]+"</li>");
     }
 
