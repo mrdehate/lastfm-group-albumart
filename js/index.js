@@ -97,8 +97,26 @@ function getArtistChart() {
    
 //    $('.output').append(JSON.stringify(data) + "<br /><br />");
 
+//*** handle the chart dates ***
+    var chartStart = new Date();
+    var chartEnd = new Date();
+
+    try{
+      chartStart.setTime(data.weeklyartistchart["@attr"].from*1000);   //last.fm sends this value in seconds since 1970; JS data object uses milliseconds
+      chartEnd.setTime(data.weeklyartistchart["@attr"].to*1000);
+    }
+    catch (meh) {
+      chartStart = null;
+      chartEnd = null;
+    }
+
+    $('.artistChart h3').html("");
+    if (chartStart && chartEnd) {
+      $('.artistChart h3').html($.datepicker.formatDate('M dd', chartStart) + " - " + $.datepicker.formatDate('M dd', chartEnd));
+    }
+
+//*** get the artists ***
     var topArtists = new Array();
-    
     var i=0;
 
     while (data.weeklyartistchart.artist[i]) {

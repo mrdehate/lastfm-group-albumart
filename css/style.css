@@ -112,12 +112,17 @@ footer .stats {
   background-color: #333;
   margin-right: 10px; }
   /* line 124, ../scss/style.scss */
-  .artistChart span {
+  .artistChart h2 {
     font-size: 18px;
     text-align: center;
-    display: block;
     margin-top: 10px; }
-  /* line 131, ../scss/style.scss */
+  /* line 130, ../scss/style.scss */
+  .artistChart h3 {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  /* line 137, ../scss/style.scss */
   .artistChart ol {
     margin-left: 35px;
     margin-bottom: 10px; }
