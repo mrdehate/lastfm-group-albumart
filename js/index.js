@@ -1,5 +1,6 @@
 //Global Variables yay!
 var LASTFM_API_KEY = "e63ca8d5b65415a4ee36b32260dce956";
+var ECHONEST_API_KEY = "TU0XNU2PKBGD5AIJ2";
  // var THE_GROUP = "350 groups";
  // var THE_GROUP = "The Musical Elitists";
 var THE_GROUP = "WorkForce Software";
@@ -28,6 +29,9 @@ function getRecentArt(userName) {
     var artist = data.recenttracks.track[0].artist["#text"];
     var song = data.recenttracks.track[0].name;
     var cover = data.recenttracks.track[0].image[3]["#text"];
+    var albumMBID = data.recenttracks.track[0].album["mbid"];
+//    var albumName = data.recenttracks.track[0].album["#text"];
+
 
     if (data.recenttracks.track[0]["@attr"] &&
         data.recenttracks.track[0]["@attr"].nowplaying === "true") {
@@ -38,7 +42,7 @@ function getRecentArt(userName) {
       htmlString += "<div class='user'>"+userName+"</div>";
       htmlString += "<div class='artistOuter'><span class='artist'>"+artist+"</span></div>";
       htmlString += "<div class='songOuter'><span class='song'>"+song+"</span></div>";
-      htmlString += "<img class='imgArt' src='"+getCoverArt(cover, artist)+"' /><br />";
+      htmlString += "<img class='imgArt' src='"+getCoverArt(cover, artist, albumMBID, song)+"' /><br />";
       htmlString += "</div>";
       $('.cover').append(htmlString);
       //  $('.output').html(JSON.stringify(data));
@@ -52,35 +56,120 @@ function getRecentArt(userName) {
 
 /**
 *
-* If there isn't cover art for a song supplied, tries to get something else interesting to show
+* Either returns the cover art if it's been supplied, or tries to get it from elsewhere.
+* If there isn't cover art for a song supplied, tries to get something else interesting to show.
 * 
 */
-function getCoverArt(coverIn, artist) {
+function getCoverArt(coverIn, artist, albumMBID, song) {
 //@TODO: move blankCoverURL out to a config file somewhere
 
   var cover = "";
 
   if (coverIn === "") {
-    $.ajax({
-      url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+artist+"&api_key="+LASTFM_API_KEY+"&format=json",
-      async: false
-    }).done(function( a1 ) {
-      try{
-        cover = a1.artist.image[2]["#text"];
-      }
-      catch (meh) {
+    cover = backupAlbumArtCoverArchive(albumMBID);
+
+    if (coverIn === "") {
+      cover = backupAlbumArtEchoNest(artist, song);
+
+      if (cover === "") {
+        cover = getArtistArt(artist);
+
+        if (cover === "") {
           cover = BLANK_COVER_URL;
+        }
       }
-          gApiCallCounter++;
-    });
-    if (cover === "") {
-      cover = BLANK_COVER_URL;
     }
   } else {
     cover = coverIn;
   }
 
   return cover;
+}
+
+/**
+*
+* Get the art for the given artist
+*
+*/
+function getArtistArt(artist) {
+  var cover = "";
+
+  $.ajax({
+    url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+artist+"&api_key="+LASTFM_API_KEY+"&format=json",
+    async: false
+  }).done(function( a1 ) {
+    try{
+      cover = a1.artist.image[2]["#text"];
+    }
+    catch (meh) {
+    }
+        gApiCallCounter++;
+  });
+
+  return cover; 
+}
+
+/**
+*
+* Calls the cover art archive. Since it requires an MBID, I'm fairly confident this will never be helpful.
+* Also I think the selection at this service is poor. But it's free.
+* @TODO: Needs updated API counter
+*
+*/
+function backupAlbumArtCoverArchive(albumMBID) {
+  var cover = "";
+
+  if (albumMBID === "" || albumMBID === null) {
+    return cover;
+  }
+
+  $.ajax({
+    url: "http://coverartarchive.org/release/" + albumMBID,
+    async: false
+  }).done(function( a1 ) {
+    try{
+      cover = a1.images.thumbnails.small["#text"];
+    }
+    catch (meh) {
+    }
+//        gApiCallCounter++;
+  });
+
+  return cover; 
+}
+
+/**
+*
+* Does a search with EchoNest to get the artist and song. Art comes from 7Digital; it's not super, but it's better than nothing.
+* @TODO: This breaks the API call counter, since it's a different API
+*
+*/
+function backupAlbumArtEchoNest(artist, song) {
+  var cover = "";
+
+  if (artist === "" || artist === null || song === "" || song === null) {
+    return cover;
+  }
+
+  $.ajax({
+    url: "http://developer.echonest.com/api/v4/song/search?api_key=" + ECHONEST_API_KEY + "&format=json&results=1&artist=" + artist + "&title=" + song + "&bucket=id:7digital-US&bucket=tracks",
+    async: false
+  }).done(function( a1 ) {
+    try{
+      cover = a1.response.songs[0].tracks[0].release_image;
+//@TODO debug code here
+/*      if (cover !== "") {
+        console.log("Hey it worked!!! " + cover);
+      }
+*/
+//---------
+    }
+    catch (meh) {
+    }
+ //       gApiCallCounter++;
+  });
+
+  return cover; 
 }
 
 /**
@@ -120,7 +209,7 @@ function getArtistChart() {
     var i=0;
 
     while (data.weeklyartistchart.artist[i]) {
-      console.log(data.weeklyartistchart.artist[i].playcount);
+//      console.log(data.weeklyartistchart.artist[i].playcount);
       if(data.weeklyartistchart.artist[i].playcount && data.weeklyartistchart.artist[i].playcount > 1) {
         topArtists[i] = data.weeklyartistchart.artist[i].name;
       } else {
@@ -180,8 +269,7 @@ function displayAlbumArt() {
       j++;
     }
 
-    var time = new Date();
-    $('.updateTime').html(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+    $('.updateTime').html((new Date()).toLocaleTimeString());
 
     gApiCallCounter++;
 
