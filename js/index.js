@@ -95,7 +95,7 @@ function getArtistArt(artist) {
   var cover = "";
 
   $.ajax({
-    url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+artist+"&api_key="+LASTFM_API_KEY+"&format=json",
+    url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+encodeURIComponent(artist)+"&api_key="+LASTFM_API_KEY+"&format=json",
     async: false
   }).done(function( a1 ) {
     try{
@@ -152,7 +152,7 @@ function backupAlbumArtEchoNest(artist, song) {
   }
 
   $.ajax({
-    url: "http://developer.echonest.com/api/v4/song/search?api_key=" + ECHONEST_API_KEY + "&format=json&results=1&artist=" + artist + "&title=" + song + "&bucket=id:7digital-US&bucket=tracks",
+    url: "http://developer.echonest.com/api/v4/song/search?api_key=" + ECHONEST_API_KEY + "&format=json&results=1&artist=" + encodeURIComponent(artist) + "&title=" + encodeURIComponent(song) + "&bucket=id:7digital-US&bucket=tracks",
     async: false
   }).done(function( a1 ) {
     try{
