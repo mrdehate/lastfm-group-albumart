@@ -300,7 +300,7 @@ function main() {
     }
 
     var time = new Date();
-    $('.updateTime').html(time.getHours()+":"+time.getMinutes()+":"+time.getSeconds());
+    $('.updateTime').html((new Date()).toLocaleTimeString());
 
     gApiCallCounter++;
 
