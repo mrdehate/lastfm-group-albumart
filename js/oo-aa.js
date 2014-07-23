@@ -172,12 +172,14 @@ function Listen(inUserName, inConstants) {
 		}
 	});
 
-//@TODO: Would be cool if we had a "debug" switch at the top of the file
-//	  console.log(this);
+	//@TODO: Would be cool if we had a "debug" switch at the top of the file
+	//	  console.log(this);
 
 	  if (this.albumArt === "" && this.nowPlaying) {
 		  this.albumArt = getAlbumArt();
 	  }
+
+	  gApiCallCounter = gApiCallCounter + this.apiCount;
 
 }
 
