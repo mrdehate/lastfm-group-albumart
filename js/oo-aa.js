@@ -311,6 +311,10 @@ function main() {
   return true;
 }
 
+$( document ).ready(function() {
+	$('.groupName').html("What " + (new Constants()).THE_GROUP + " is Listening To Right Now");
+});
+
 setInterval(main, (new Constants()).REFRESH_INTERVAL);
 setInterval(updateApiCounter, (new Constants()).REFRESH_INTERVAL);
 
