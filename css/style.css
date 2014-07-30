@@ -1,39 +1,39 @@
 @import url("http://fonts.googleapis.com/css?family=Cabin Condensed");
-/* line 7, ../scss/style.scss */
+/* line 9, ../scss/style.scss */
 * {
   margin: 0;
   padding: 0;
   border: 0; }
 
-/* line 13, ../scss/style.scss */
+/* line 15, ../scss/style.scss */
 html, body {
   height: 100%; }
 
-/* line 17, ../scss/style.scss */
+/* line 19, ../scss/style.scss */
 body {
   font-size: 15px;
   font-family: Cabin Condensed, sans-serif;
   background: black; }
 
-/* line 23, ../scss/style.scss */
+/* line 25, ../scss/style.scss */
 header {
   height: 40px;
   line-height: 40px;
   text-align: center;
   background: -webkit-linear-gradient(white, #bbbbbb);
   background: linear-gradient(white, #bbbbbb); }
-  /* line 29, ../scss/style.scss */
+  /* line 31, ../scss/style.scss */
   header .groupName {
     font-weight: bold;
     font-size: 20px;
     text-shadow: 1px 1px 1px white; }
-  /* line 34, ../scss/style.scss */
+  /* line 36, ../scss/style.scss */
   header .updateTime {
     float: right;
     margin-right: 10px;
     text-shadow: 1px 1px 1px white; }
 
-/* line 43, ../scss/style.scss */
+/* line 44, ../scss/style.scss */
 footer .todayMessage {
   position: absolute;
   width: 100%;
@@ -42,7 +42,7 @@ footer .todayMessage {
   bottom: 20px;
   font-size: 24px;
   left: 0px; }
-/* line 53, ../scss/style.scss */
+/* line 54, ../scss/style.scss */
 footer .stats {
   position: absolute;
   bottom: 5px;
@@ -50,26 +50,32 @@ footer .stats {
   color: #555; }
 
 /* line 62, ../scss/style.scss */
-.cover .entry {
-  width: 300px;
-  float: left;
-  margin: 5px;
-  padding: 10px;
-  position: relative; }
-/* line 69, ../scss/style.scss */
-.cover .imgArt {
-  width: 290px;
-  border: 5px solid black;
-  background-color: black; }
+.cover {
+  padding-right: 270px; }
+  /* line 64, ../scss/style.scss */
+  .cover .entry {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    position: relative; }
+  /* line 73, ../scss/style.scss */
+  .cover .imgArt {
+    width: 290px;
+    border: 5px solid black;
+    background-color: black; }
 
-/* line 75, ../scss/style.scss */
+/* line 79, ../scss/style.scss */
 .user {
   text-align: center;
   background-color: black;
   padding: 5px;
-  border: 5px solid black; }
+  border: 5px solid black;
+  display: none; }
 
-/* line 82, ../scss/style.scss */
+/* line 87, ../scss/style.scss */
 .artistOuter, .songOuter {
   position: absolute;
   left: 4px;
@@ -80,17 +86,17 @@ footer .stats {
   overflow: hidden;
   padding: 5px 10px 5px 0px; }
 
-/* line 93, ../scss/style.scss */
+/* line 98, ../scss/style.scss */
 .artist, .song {
   color: black;
   background-color: #ccc;
   padding: 5px 10px 5px 10px; }
 
-/* line 99, ../scss/style.scss */
+/* line 104, ../scss/style.scss */
 .songOuter {
   bottom: 0px; }
 
-/* line 103, ../scss/style.scss */
+/* line 108, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
@@ -102,27 +108,27 @@ footer .stats {
   font-size: 50px;
   text-align: center; }
 
-/* line 115, ../scss/style.scss */
+/* line 120, ../scss/style.scss */
 .artistChart {
   width: 250px;
   position: absolute;
   right: 0;
-  top: 50px;
+  top: 60px;
   color: white;
   background-color: #333;
   margin-right: 10px; }
-  /* line 124, ../scss/style.scss */
+  /* line 129, ../scss/style.scss */
   .artistChart h2 {
     font-size: 18px;
     text-align: center;
     margin-top: 10px; }
-  /* line 130, ../scss/style.scss */
+  /* line 135, ../scss/style.scss */
   .artistChart h3 {
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px; }
-  /* line 137, ../scss/style.scss */
+  /* line 142, ../scss/style.scss */
   .artistChart ol {
     margin-left: 35px;
     margin-bottom: 10px; }
