@@ -1,0 +1,1 @@
+function initialize(){var e=new google.maps.LatLng(42.45887,-83.21938),a={zoom:9,center:e},n=new google.maps.Map(document.getElementById("map-canvas"),a),i=new google.maps.TrafficLayer;i.setMap(n)}google.maps.event.addDomListener(window,"load",initialize),setInterval(initialize,6e4);

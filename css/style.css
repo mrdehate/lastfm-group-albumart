@@ -1,39 +1,39 @@
 @import url("http://fonts.googleapis.com/css?family=Cabin Condensed");
-/* line 9, ../scss/style.scss */
+/* line 10, ../scss/style.scss */
 * {
   margin: 0;
   padding: 0;
   border: 0; }
 
-/* line 15, ../scss/style.scss */
+/* line 16, ../scss/style.scss */
 html, body {
   height: 100%; }
 
-/* line 19, ../scss/style.scss */
+/* line 20, ../scss/style.scss */
 body {
   font-size: 15px;
   font-family: Cabin Condensed, sans-serif;
   background: black; }
 
-/* line 25, ../scss/style.scss */
+/* line 26, ../scss/style.scss */
 header {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  background: -webkit-linear-gradient(white, #bbbbbb);
-  background: linear-gradient(white, #bbbbbb); }
-  /* line 31, ../scss/style.scss */
+  background: -webkit-linear-gradient(#fff, #bbb);
+  background: linear-gradient(#fff, #bbb); }
+  /* line 32, ../scss/style.scss */
   header .groupName {
     font-weight: bold;
     font-size: 20px;
     text-shadow: 1px 1px 1px white; }
-  /* line 36, ../scss/style.scss */
+  /* line 37, ../scss/style.scss */
   header .updateTime {
     float: right;
     margin-right: 10px;
     text-shadow: 1px 1px 1px white; }
 
-/* line 44, ../scss/style.scss */
+/* line 45, ../scss/style.scss */
 footer .todayMessage {
   position: absolute;
   width: 100%;
@@ -42,17 +42,17 @@ footer .todayMessage {
   bottom: 20px;
   font-size: 24px;
   left: 0px; }
-/* line 54, ../scss/style.scss */
+/* line 55, ../scss/style.scss */
 footer .stats {
   position: absolute;
   bottom: 5px;
   left: 5px;
   color: #555; }
 
-/* line 62, ../scss/style.scss */
+/* line 63, ../scss/style.scss */
 .cover {
   padding-right: 270px; }
-  /* line 64, ../scss/style.scss */
+  /* line 65, ../scss/style.scss */
   .cover .entry {
     width: 300px;
     height: 300px;
@@ -61,13 +61,13 @@ footer .stats {
     margin: 5px;
     padding: 10px;
     position: relative; }
-  /* line 73, ../scss/style.scss */
+  /* line 74, ../scss/style.scss */
   .cover .imgArt {
     width: 290px;
     border: 5px solid black;
     background-color: black; }
 
-/* line 79, ../scss/style.scss */
+/* line 80, ../scss/style.scss */
 .user {
   text-align: center;
   background-color: black;
@@ -75,7 +75,7 @@ footer .stats {
   border: 5px solid black;
   display: none; }
 
-/* line 87, ../scss/style.scss */
+/* line 88, ../scss/style.scss */
 .artistOuter, .songOuter {
   position: absolute;
   left: 4px;
@@ -86,17 +86,17 @@ footer .stats {
   overflow: hidden;
   padding: 5px 10px 5px 0px; }
 
-/* line 98, ../scss/style.scss */
+/* line 99, ../scss/style.scss */
 .artist, .song {
   color: black;
   background-color: #ccc;
   padding: 5px 10px 5px 10px; }
 
-/* line 104, ../scss/style.scss */
+/* line 105, ../scss/style.scss */
 .songOuter {
   bottom: 0px; }
 
-/* line 108, ../scss/style.scss */
+/* line 109, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
@@ -108,7 +108,7 @@ footer .stats {
   font-size: 50px;
   text-align: center; }
 
-/* line 120, ../scss/style.scss */
+/* line 121, ../scss/style.scss */
 .artistChart {
   width: 250px;
   position: absolute;
@@ -117,18 +117,41 @@ footer .stats {
   color: white;
   background-color: #333;
   margin-right: 10px; }
-  /* line 129, ../scss/style.scss */
+  /* line 130, ../scss/style.scss */
   .artistChart h2 {
     font-size: 18px;
     text-align: center;
     margin-top: 10px; }
-  /* line 135, ../scss/style.scss */
+  /* line 136, ../scss/style.scss */
   .artistChart h3 {
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px; }
-  /* line 142, ../scss/style.scss */
+  /* line 143, ../scss/style.scss */
   .artistChart ol {
     margin-left: 35px;
     margin-bottom: 10px; }
+
+/* line 149, ../scss/style.scss */
+.map {
+  width: 250px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: white;
+  background-color: #333;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+  /* line 160, ../scss/style.scss */
+  .map h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  /* line 167, ../scss/style.scss */
+  .map #map-canvas {
+    margin: auto;
+    width: 230px;
+    height: 230px; }

@@ -1,5 +1,6 @@
 $bg-color: black;
 $font-fam: Cabin Condensed;
+$chartBg-color: #333;
 
 $chartWidth: 250px;
 $chartPadding: 10px;
@@ -123,7 +124,7 @@ footer {
   right:0;
   top:60px;
   color:white;
-  background-color:#333;
+  background-color:$chartBg-color;
   margin-right:$chartPadding;
 
   h2 {
@@ -142,5 +143,30 @@ footer {
   ol {
     margin-left:35px;
     margin-bottom:10px;
+  }
+}
+
+.map {
+  width:$chartWidth;
+  position:absolute;
+  right:0;
+  bottom:0;
+  color:white;
+  background-color:$chartBg-color;
+  margin-right:$chartPadding;
+  margin-bottom:$chartPadding;
+  padding-bottom:$chartPadding;
+
+  h2 {
+    font-size:18px;
+    text-align: center;
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+
+  #map-canvas {
+    margin:auto;
+    width:230px; 
+    height:230px;
   }
 }
