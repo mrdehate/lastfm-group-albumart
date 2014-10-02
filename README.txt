@@ -1,11 +1,12 @@
-For a given last.fm group, gets all the members, and displays cover art for whoever is listening right now. Uses a lot of API calls, because I can't figure out a better way to do it.
+This project is designed to display the album art from currently played songs of a single Last.fm group. I'm using in an office setting, running constantly on a dedicated display, so people in the office can see what everybody else is currently listening to!
 
-Also, the code isn’t really great. Yet.
+It's also got a couple of bonus features (feature creep). In addition to album art, the artist chart for the group is displayed, plus a tiny map with current traffic conditions.
 
-Here's how it works:
+It uses a lot of Last.fm API calls, mostly because the group API is fairly limited. Here's how it works:
 
 * Get all the members of a given Last.fm group
-* For each member of the group, gets the last song that they have scrobbled
+* For each member of the group, get the last song that they have scrobbled
 ** If this song is "now playing", display it on the screen
-*** If the album art isn't found for this track, do another API call to get the default artist art
+*** If the album art isn't found for this track, call some other services to get alternative art. 
+*** If there's still no art, get the default artist art from Last.fm
 * Repeat every 60 seconds
