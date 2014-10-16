@@ -73,12 +73,15 @@ function Listen(inUserName, inConstants) {
 	    url: "http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist="+encodeURIComponent(self.artist)+"&api_key="+constants.LASTFM_API_KEY+"&format=json",
 	    async: false
 	  }).done(function( a1 ) {
-	    try{
+	    try {
 	      tempArt = a1.artist.image[2]["#text"];
 	    }
 	    catch (meh) {
+
 	    }
-	        self.apiCount++;
+
+        self.apiCount++;
+        a1 = null;
 	  });
 
 	return tempArt;
@@ -103,12 +106,14 @@ function Listen(inUserName, inConstants) {
 	    url: "http://coverartarchive.org/release/" + self.albumMBID,
 	    async: false
 	  }).done(function( a1 ) {
-	    try{
+	    try {
 	      tempArt = a1.images.thumbnails.small["#text"];
 	    }
 	    catch (meh) {
 	    }
-	//        gApiCallCounter++;
+
+	    a1 = null;
+
 	  });
 
 	  return tempArt;
@@ -136,7 +141,7 @@ function Listen(inUserName, inConstants) {
 	    }
 	    catch (meh) {
 	    }
-	 //       gApiCallCounter++;
+
 	  });
 
 	  return tempArt;
@@ -170,6 +175,9 @@ function Listen(inUserName, inConstants) {
 		} catch (meh) {
 			self.valid = false;
 		}
+
+		data = null;
+
 	});
 
 	//@TODO: Would be cool if we had a "debug" switch at the top of the file
@@ -204,7 +212,6 @@ function processListen(inListen, inTargetClass) {
 * 
 */
 function getArtistChart() {
-//  $('.groupName').html(theGroup+" @ Last.fm");
 
   var constants = new Constants();
 
@@ -237,7 +244,6 @@ function getArtistChart() {
     var i=0;
 
     while (data.weeklyartistchart.artist[i]) {
-//      console.log(data.weeklyartistchart.artist[i].playcount);
       if(data.weeklyartistchart.artist[i].playcount && data.weeklyartistchart.artist[i].playcount > 1) {
         topArtists[i] = data.weeklyartistchart.artist[i].name;
       } else {
@@ -259,6 +265,8 @@ function getArtistChart() {
     }
 
     gApiCallCounter++;
+
+    data = null;
 
   });
 
@@ -305,6 +313,8 @@ function main() {
     $('.updateTime').html((new Date()).toLocaleTimeString());
 
     gApiCallCounter++;
+
+	data = null;
 
   });
 

@@ -10,7 +10,13 @@ function initialize() {
 
   var trafficLayer = new google.maps.TrafficLayer();
   trafficLayer.setMap(map);
+
+  myLatlng = null;
+  mapOptions = null;
+  map = null;
+  trafficLayer = null;
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-setInterval(initialize, 120000);
+setInterval(initialize, 60000);
