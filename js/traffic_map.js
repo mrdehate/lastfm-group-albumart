@@ -19,4 +19,4 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-setInterval(initialize, 60000);
+setInterval(initialize, 600000);
