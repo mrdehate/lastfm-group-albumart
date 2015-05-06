@@ -1,0 +1,543 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"api",
+				"apiCount"
+			],
+			[
+				"handle",
+				"handleiTunesCallback"
+			],
+			[
+				"hand",
+				"handleiTunesCallback"
+			],
+			[
+				"echo",
+				"ECHONEST_API_KEY"
+			],
+			[
+				"album",
+				"album"
+			],
+			[
+				"update",
+				"updateApiCounter"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 1350,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scss/style.scss",
+			"settings":
+			{
+				"buffer_size": 2668,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 3369,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/oo-aa.js",
+			"settings":
+			{
+				"buffer_size": 8082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n	\"recenttracks\": {\n		\"track\": [{\n			\"artist\": {\n				\"#text\": \"\\\"Weird Al\\\" Yankovic\",\n				\"mbid\": \"\"\n			},\n			\"name\": \"Word Crimes\",\n			\"streamable\": \"0\",\n			\"mbid\": \"\",\n			\"album\": {\n				\"#text\": \"\",\n				\"mbid\": \"\"\n			},\n			\"url\": \"http:\\/\\/www.last.fm\\/music\\/%22Weird+Al%22+Yankovic\\/_\\/Word+Crimes\",\n			\"image\": [{\n				\"#text\": \"\",\n				\"size\": \"small\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"medium\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"large\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"extralarge\"\n			}],\n			\"@attr\": {\n				\"nowplaying\": \"true\"\n			}\n		}, {\n			\"artist\": {\n				\"#text\": \"\\\"Weird Al\\\" Yankovic\",\n				\"mbid\": \"\"\n			},\n			\"name\": \"Sports Song\",\n			\"streamable\": \"0\",\n			\"mbid\": \"\",\n			\"album\": {\n				\"#text\": \"Mandatory Fun\",\n				\"mbid\": \"\"\n			},\n			\"url\": \"http:\\/\\/www.last.fm\\/music\\/%22Weird+Al%22+Yankovic\\/_\\/Sports+Song\",\n			\"image\": [{\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/34s\\/99943471.jpg\",\n				\"size\": \"small\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/64s\\/99943471.jpg\",\n				\"size\": \"medium\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/126\\/99943471.jpg\",\n				\"size\": \"large\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/300x300\\/99943471.jpg\",\n				\"size\": \"extralarge\"\n			}],\n			\"date\": {\n				\"#text\": \"15 Jul 2014, 13:52\",\n				\"uts\": \"1405432348\"\n			}\n		}, {\n			\"artist\": {\n				\"#text\": \"\\\"Weird Al\\\" Yankovic\",\n				\"mbid\": \"\"\n			},\n			\"name\": \"Foil\",\n			\"streamable\": \"0\",\n			\"mbid\": \"\",\n			\"album\": {\n				\"#text\": \"Mandatory Fun\",\n				\"mbid\": \"\"\n			},\n			\"url\": \"http:\\/\\/www.last.fm\\/music\\/%22Weird+Al%22+Yankovic\\/_\\/Foil\",\n			\"image\": [{\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/34s\\/99943471.jpg\",\n				\"size\": \"small\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/64s\\/99943471.jpg\",\n				\"size\": \"medium\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/126\\/99943471.jpg\",\n				\"size\": \"large\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/300x300\\/99943471.jpg\",\n				\"size\": \"extralarge\"\n			}],\n			\"date\": {\n				\"#text\": \"15 Jul 2014, 13:50\",\n				\"uts\": \"1405432206\"\n			}\n		}],\n		\"@attr\": {\n			\"user\": \"mrdehate\",\n			\"page\": \"1\",\n			\"perPage\": \"2\",\n			\"totalPages\": \"31523\",\n			\"total\": \"63045\"\n		}\n	}\n}",
+			"settings":
+			{
+				"buffer_size": 2251,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n	\"recenttracks\": {\n		\"track\": [{\n			\"artist\": {\n				\"#text\": \"\\\"Weird Al\\\" Yankovic\",\n				\"mbid\": \"\"\n			},\n			\"name\": \"My Own Eyes\",\n			\"streamable\": \"0\",\n			\"mbid\": \"\",\n			\"album\": {\n				\"#text\": \"\",\n				\"mbid\": \"\"\n			},\n			\"url\": \"http:\\/\\/www.last.fm\\/music\\/%22Weird+Al%22+Yankovic\\/_\\/My+Own+Eyes\",\n			\"image\": [{\n				\"#text\": \"\",\n				\"size\": \"small\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"medium\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"large\"\n			}, {\n				\"#text\": \"\",\n				\"size\": \"extralarge\"\n			}],\n			\"@attr\": {\n				\"nowplaying\": \"true\"\n			}\n		}, {\n			\"artist\": {\n				\"#text\": \"\\\"Weird Al\\\" Yankovic\",\n				\"mbid\": \"\"\n			},\n			\"name\": \"Word Crimes\",\n			\"streamable\": \"0\",\n			\"mbid\": \"\",\n			\"album\": {\n				\"#text\": \"Mandatory Fun\",\n				\"mbid\": \"\"\n			},\n			\"url\": \"http:\\/\\/www.last.fm\\/music\\/%22Weird+Al%22+Yankovic\\/_\\/Word+Crimes\",\n			\"image\": [{\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/34s\\/99943471.jpg\",\n				\"size\": \"small\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/64s\\/99943471.jpg\",\n				\"size\": \"medium\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/126\\/99943471.jpg\",\n				\"size\": \"large\"\n			}, {\n				\"#text\": \"http:\\/\\/userserve-ak.last.fm\\/serve\\/300x300\\/99943471.jpg\",\n				\"size\": \"extralarge\"\n			}],\n			\"date\": {\n				\"#text\": \"15 Jul 2014, 13:54\",\n				\"uts\": \"1405432483\"\n			}\n		}],\n		\"@attr\": {\n			\"user\": \"mrdehate\",\n			\"page\": \"1\",\n			\"perPage\": \"1\",\n			\"totalPages\": \"63046\",\n			\"total\": \"63046\"\n		}\n	}\n}",
+			"settings":
+			{
+				"buffer_size": 1473,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "{\n	\"images\": [{\n		\"types\": [\"Front\"],\n		\"front\": true,\n		\"back\": false,\n		\"edit\": 22249258,\n		\"image\": \"http://coverartarchive.org/release/7cebc667-c2ff-4b50-b85d-355e9b7daa71/4157743092.jpg\",\n		\"comment\": \"\",\n		\"approved\": true,\n		\"thumbnails\": {\n			\"large\": \"http://coverartarchive.org/release/7cebc667-c2ff-4b50-b85d-355e9b7daa71/4157743092-500.jpg\",\n			\"small\": \"http://coverartarchive.org/release/7cebc667-c2ff-4b50-b85d-355e9b7daa71/4157743092-250.jpg\"\n		},\n		\"id\": \"4157743092\"\n	}],\n	\"release\": \"http://musicbrainz.org/release/7cebc667-c2ff-4b50-b85d-355e9b7daa71\"\n}",
+			"settings":
+			{
+				"buffer_size": 573,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/traffic_map.js",
+			"settings":
+			{
+				"buffer_size": 520,
+				"line_ending": "Unix",
+				"name": "function initialize() {"
+			}
+		},
+		{
+			"contents": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \n\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n<html>\n   <head>\n      <title></title>\n      <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n\n      <script type=\"text/javascript\" \nsrc=\"http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0\"></script>\n\n      <script type=\"text/javascript\">\n\n      var map = null;\n\n      function GetMap()\n      {  \n         var mapOptions = {credentials:\"ApiiBOoGsxv-I5hImjK6toj6uiKrlPT5y8qFmMfHvCXO1Bh8xudavMbIMi0QFCtg\",\n                           center: new Microsoft.Maps.Location(42.45887, -83.21938),\n                           zoom: 9,\n                           mapTypeId: Microsoft.Maps.MapTypeId.road,\n                           disableUserInput: true,\n                           showDashboard:false,\n                           showScalebar:false,\n                           showMapTypeSelector: false};\n\n         map = new Microsoft.Maps.Map(document.getElementById(\"mapDiv\"), mapOptions);\n\n         Microsoft.Maps.loadModule('Microsoft.Maps.Traffic', { callback: trafficModuleLoaded });\n\n      }\n\n\n      function trafficModuleLoaded()\n      {\n         var trafficManager = new Microsoft.Maps.Traffic.TrafficManager(map);\n         trafficManager.show();\n         trafficManager.hideLegend();\n         trafficManager.hideIncidents();\n      }\n     \n   setInterval(GetMap, 6000);\n      \n      </script>\n   </head>\n   <body onload=\"GetMap();\">\n      <div id='mapDiv' style=\"position:relative; width:250px; height:250px;\"></div> \n   </body>\n</html>",
+			"file": "/Users/mdehate/Desktop/test.html",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 1593,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"install",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/mdehate/Desktop/doc page.html",
+		"/Applications/Sublime Text.app/Contents/MacOS/changelog.txt",
+		"/Users/mdehate/Desktop/test.svg",
+		"/Users/mdehate/Desktop/test.html",
+		"/Users/mdehate/Sites/lastfm-group-albumart/js/index.js",
+		"/Users/mdehate/Sites/lastfm-group-albumart/css/screen.css",
+		"/Users/mdehate/Desktop/testing"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"gApiCallCounter",
+			"console.log",
+			"theGroup",
+			"prefixfree",
+			"getGroupMembers",
+			"track",
+			"\n};",
+			"nowplaying",
+			"groupMembers"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1109,
+								1109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scss/style.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2668,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2397,
+								2397
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/style.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3369,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1534,
+								1534
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/oo-aa.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7721,
+								7721
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171,
+								171
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1473,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								656,
+								656
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								573,
+								573
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/traffic_map.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 520,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								515,
+								515
+							]
+						],
+						"settings":
+						{
+							"auto_name": "function initialize() {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/Users/mdehate/Desktop/test.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1593,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1418,
+								1418
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "albumart.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

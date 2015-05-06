@@ -191,6 +191,21 @@ function Listen(inUserName, inConstants) {
 
 }
 
+function Artist(inData, inConstants) {
+	//Public Variables
+	this.artist = inData.name;
+	this.mbid = inData.mbid;
+//	this.albumArt = inData.image[2]["#text"];
+	this.totalPlaycount = inData.playcount;
+
+	this.uniqueUsers = 1;
+
+	//Private Variables
+	var self = this;
+	var constants = inConstants;
+
+}
+
 function processListen(inListen, inTargetClass) {
 
 	if (inListen.nowPlaying) {
@@ -273,6 +288,152 @@ function getArtistChart() {
   return true;
 }
 
+/**
+*
+* Gets the top artist chart for the passed in user
+* 
+*/
+function getUsersArtistChart(inUserName) {
+	var constants = new Constants();
+	var listOfArtists = new Array();
+
+	  $.ajax({
+	    url: "http://ws.audioscrobbler.com/2.0/?method=user.getTopArtists&period=7day&api_key="+constants.LASTFM_API_KEY+"&user="+inUserName+"&format=json&limit=200",
+	    async: false
+	  }).done(function( data ) {
+//	console.log("ARTISTS:"+JSON.stringify(data) + "<br /><br />");
+		var i=0;
+/*
+console.log(inUserName+"|pre"+JSON.stringify(data.topartists));
+console.log(inUserName+"|zero"+JSON.stringify(data.topartists.artist[0]));
+console.log(inUserName+"|one"+JSON.stringify(data.topartists.artist[1]));
+*/
+		if (data && data.topartists && data.topartists.artist) {
+		    while (data.topartists.artist[i]) {
+	//		console.log("ONE ARTIST:"+JSON.stringify(data.weeklyartistchart.artist[i]) + "<br /><br />");
+	    		listOfArtists[i] = new Artist(data.topartists.artist[i]);
+	    		i++;
+			}
+		}
+
+	  });
+
+	return listOfArtists;
+
+}
+
+
+/**
+*
+* Displays top artists for the last 7 days
+* 
+*/
+function getCustomArtistChart() {
+
+  	var constants = new Constants();
+//@TODO: Definitely something that should be in like a utility function. Maybe put all the API calls together somehow?
+	var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+constants.LASTFM_API_KEY+"&group="+constants.THE_GROUP+"&format=json";
+
+  $.getJSON(url, function(memberData) {
+
+	var groupMembers = new Array();
+	var artistChart = new Array();
+	var i=0;
+
+//Get all the artist charts for all the group members
+    while (memberData.members.user[i]) {
+    	artistChart[i] = getUsersArtistChart(memberData.members.user[i].name);
+    	i++;
+	}
+
+//combine them
+	var merged = [];
+	merged = merged.concat.apply(merged, artistChart);
+
+	i=0;
+	var artistTotals = [];
+	var found, j;
+
+//combine any artists that appear in the list more than once
+    while (merged[i]) {
+    	found = false;
+    	j = 0;
+
+    	while (j < artistTotals.length && !found) {
+    		if (artistTotals[j] && 
+    			merged[i] &&
+    			merged[i].artist &&
+    			artistTotals[j].artist &&
+    			artistTotals[j].artist === merged[i].artist)
+    		{
+    			found = true;
+
+		    	artistTotals[j].uniqueUsers++;
+		    	artistTotals[j].totalPlaycount = Number(artistTotals[j].totalPlaycount) + Number(merged[i].totalPlaycount);
+    		}
+
+    		j++;
+    	}
+
+    	if (!found) {
+    		//add to list
+    		artistTotals.push(merged[i]);
+    	}
+
+    	i++;
+	}
+
+//sort by unique users that have played the artist
+	artistTotals.sort(function(a,b) { return parseFloat(b.uniqueUsers) - parseFloat(a.uniqueUsers); } );
+
+//get rid of everything that's been played by just one person
+	i = 0;
+	found = false;
+
+	while (i < artistTotals.length && !found) {
+
+		if (artistTotals[i].uniqueUsers === 1) {
+			artistTotals.splice(i, Number.MAX_VALUE);
+
+			found = true;
+		}
+		i++;
+	}
+
+//sort everything else by total playcount
+//@TODO: This doesn't exactly make sense...should be like a subsort
+//	artistTotals.sort(function(a,b) { return parseFloat(b.totalPlaycount) - parseFloat(a.totalPlaycount) } );
+
+//display the chart
+//@TODO: Move this to its own function
+    var today = new Date();
+    var aWeekAgo = new Date();
+    aWeekAgo.setDate(aWeekAgo.getDate() - 7);
+
+    $('.artistChart h3').html($.datepicker.formatDate('M dd', aWeekAgo) + " - " + $.datepicker.formatDate('M dd', today));
+    $('.artistChart ol').html("");
+
+    for (j = 0; j < 25 ; j++) { 
+      if (artistTotals[j] === undefined) {
+        break;
+      }
+
+      $('.artistChart ol').append("<li>"+artistTotals[j].artist+" <span class='unique'>"+artistTotals[j].uniqueUsers+"</span></li>");
+    }
+
+
+	});
+
+
+
+//	console.log("LEN:"+artistTotals.length);
+
+//	console.log("TOT:"+artistTotals);
+
+  return true;
+
+}
+
 
 /**
 *
@@ -309,7 +470,6 @@ function main() {
       j++;
     }
 
-    var time = new Date();
     $('.updateTime').html((new Date()).toLocaleTimeString());
 
     gApiCallCounter++;
@@ -328,6 +488,6 @@ $( document ).ready(function() {
 setInterval(main, (new Constants()).REFRESH_INTERVAL);
 setInterval(updateApiCounter, (new Constants()).REFRESH_INTERVAL);
 
-getArtistChart();
-setInterval(getArtistChart, (new Constants()).DAY_REFRESH_INTERVAL);
+getCustomArtistChart();
+setInterval(getCustomArtistChart, (new Constants()).DAY_REFRESH_INTERVAL);
 

@@ -1,39 +1,32 @@
 @import url("http://fonts.googleapis.com/css?family=Cabin Condensed");
-/* line 10, ../scss/style.scss */
 * {
   margin: 0;
   padding: 0;
   border: 0; }
 
-/* line 16, ../scss/style.scss */
 html, body {
   height: 100%; }
 
-/* line 20, ../scss/style.scss */
 body {
   font-size: 15px;
   font-family: Cabin Condensed, sans-serif;
   background: black; }
 
-/* line 26, ../scss/style.scss */
 header {
   height: 40px;
   line-height: 40px;
   text-align: center;
   background: -webkit-linear-gradient(#fff, #bbb);
   background: linear-gradient(#fff, #bbb); }
-  /* line 32, ../scss/style.scss */
   header .groupName {
     font-weight: bold;
     font-size: 20px;
     text-shadow: 1px 1px 1px white; }
-  /* line 37, ../scss/style.scss */
   header .updateTime {
     float: right;
     margin-right: 10px;
     text-shadow: 1px 1px 1px white; }
 
-/* line 45, ../scss/style.scss */
 footer .todayMessage {
   position: absolute;
   width: 100%;
@@ -42,17 +35,14 @@ footer .todayMessage {
   bottom: 20px;
   font-size: 24px;
   left: 0px; }
-/* line 55, ../scss/style.scss */
 footer .stats {
   position: absolute;
   bottom: 5px;
   left: 5px;
   color: #555; }
 
-/* line 63, ../scss/style.scss */
 .cover {
   padding-right: 270px; }
-  /* line 65, ../scss/style.scss */
   .cover .entry {
     width: 300px;
     height: 300px;
@@ -61,13 +51,11 @@ footer .stats {
     margin: 5px;
     padding: 10px;
     position: relative; }
-  /* line 74, ../scss/style.scss */
   .cover .imgArt {
     width: 290px;
     border: 5px solid black;
     background-color: black; }
 
-/* line 80, ../scss/style.scss */
 .user {
   text-align: center;
   background-color: black;
@@ -75,7 +63,6 @@ footer .stats {
   border: 5px solid black;
   display: none; }
 
-/* line 88, ../scss/style.scss */
 .artistOuter, .songOuter {
   position: absolute;
   left: 4px;
@@ -86,17 +73,14 @@ footer .stats {
   overflow: hidden;
   padding: 5px 10px 5px 0px; }
 
-/* line 99, ../scss/style.scss */
 .artist, .song {
   color: black;
   background-color: #ccc;
   padding: 5px 10px 5px 10px; }
 
-/* line 105, ../scss/style.scss */
 .songOuter {
   bottom: 0px; }
 
-/* line 109, ../scss/style.scss */
 .nothingPlaying {
   width: 500px;
   margin: auto;
@@ -108,7 +92,6 @@ footer .stats {
   font-size: 50px;
   text-align: center; }
 
-/* line 121, ../scss/style.scss */
 .artistChart {
   width: 250px;
   position: absolute;
@@ -117,23 +100,22 @@ footer .stats {
   color: white;
   background-color: #333;
   margin-right: 10px; }
-  /* line 130, ../scss/style.scss */
   .artistChart h2 {
     font-size: 18px;
     text-align: center;
     margin-top: 10px; }
-  /* line 136, ../scss/style.scss */
   .artistChart h3 {
     font-size: 14px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px; }
-  /* line 143, ../scss/style.scss */
   .artistChart ol {
     margin-left: 35px;
     margin-bottom: 10px; }
+  .artistChart .unique {
+    float: right;
+    padding-right: 10px; }
 
-/* line 149, ../scss/style.scss */
 .map {
   width: 250px;
   position: absolute;
@@ -144,13 +126,11 @@ footer .stats {
   margin-right: 10px;
   margin-bottom: 10px;
   padding-bottom: 10px; }
-  /* line 160, ../scss/style.scss */
   .map h2 {
     font-size: 18px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px; }
-  /* line 167, ../scss/style.scss */
   .map #map-canvas {
     margin: auto;
     width: 230px;
