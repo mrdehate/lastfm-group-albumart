@@ -331,18 +331,15 @@ console.log(inUserName+"|one"+JSON.stringify(data.topartists.artist[1]));
 function getCustomArtistChart() {
 
   	var constants = new Constants();
-//@TODO: Definitely something that should be in like a utility function. Maybe put all the API calls together somehow?
-	var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+constants.LASTFM_API_KEY+"&group="+constants.THE_GROUP+"&format=json";
 
-  $.getJSON(url, function(memberData) {
+	var groupMembers = getGroupMembers(constants.LASTFM_API_KEY,constants.THE_GROUP);
 
-	var groupMembers = new Array();
 	var artistChart = new Array();
 	var i=0;
 
 //Get all the artist charts for all the group members
-    while (memberData.members.user[i]) {
-    	artistChart[i] = getUsersArtistChart(memberData.members.user[i].name);
+    while (groupMembers[i]) {
+    	artistChart[i] = getUsersArtistChart(groupMembers[i]);
     	i++;
 	}
 
@@ -353,7 +350,6 @@ function getCustomArtistChart() {
 	i=0;
 	var artistTotals = [];
 	var found, j;
-
 //combine any artists that appear in the list more than once
     while (merged[i]) {
     	found = false;
@@ -400,6 +396,7 @@ function getCustomArtistChart() {
 		i++;
 	}
 
+
 //sort everything else by total playcount
 //@TODO: This doesn't exactly make sense...should be like a subsort
 //	artistTotals.sort(function(a,b) { return parseFloat(b.totalPlaycount) - parseFloat(a.totalPlaycount) } );
@@ -421,11 +418,6 @@ function getCustomArtistChart() {
       $('.artistChart ol').append("<li>"+artistTotals[j].artist+" <span class='unique'>"+artistTotals[j].uniqueUsers+"</span></li>");
     }
 
-
-	});
-
-
-
 //	console.log("LEN:"+artistTotals.length);
 
 //	console.log("TOT:"+artistTotals);
@@ -433,6 +425,33 @@ function getCustomArtistChart() {
   return true;
 
 }
+
+/**
+*
+* Returns an array of members in the group
+* 
+*/
+function getGroupMembers(apikey, theGroup) {
+	var groupMembers = new Array();
+	var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+apikey+"&group="+theGroup+"&format=json";
+	var i=0;
+
+/*	  $.getJSON(url, function(data) {
+
+		    while (data.members.user[i]) {
+		      groupMembers[i] = data.members.user[i].name;
+		      i++;
+		    }
+		});
+*/
+	//@TODO pretty confident there's a better way to get a 400 error from an AJAX request
+
+	groupMembers = ["mrdehate", "jhabshoosh", "ABigFatJerk","Tihki","bseemann","bamcclur","jpper","jamatz3","jivko16","crande25","homiewannalive","CatMalfunction","Jocolba","rokkdawg","xxteknolustxx","alumley1","mseppanen","sarcasmchick","sharpy3"];
+	
+	return groupMembers;
+
+}
+
 
 
 /**
@@ -448,17 +467,15 @@ function updateApiCounter() {
 function main() {
 	var constants = new Constants();
 	var groupMembers = new Array();
-	var url = "http://ws.audioscrobbler.com/2.0/?method=group.getmembers&api_key="+constants.LASTFM_API_KEY+"&group="+constants.THE_GROUP+"&format=json";
-
-  $.getJSON(url, function(data) {
+	var tempMembers = getGroupMembers(constants.LASTFM_API_KEY, constants.THE_GROUP);
    
 //    $('.output').append(JSON.stringify(data) + "<br /><br />");
 
     
     var i=0;
 
-    while (data.members.user[i]) {
-      groupMembers[i] = new Listen(data.members.user[i].name, constants);
+    while (tempMembers[i]) {
+      groupMembers[i] = new Listen(tempMembers[i], constants);
       i++;
     }
 
@@ -476,18 +493,15 @@ function main() {
 
 	data = null;
 
-  });
-
   return true;
 }
 
 $( document ).ready(function() {
 	$('.groupName').html("What " + (new Constants()).THE_GROUP + " is Listening To Right Now");
+	getCustomArtistChart();
 });
 
 setInterval(main, (new Constants()).REFRESH_INTERVAL);
 setInterval(updateApiCounter, (new Constants()).REFRESH_INTERVAL);
-
-getCustomArtistChart();
 setInterval(getCustomArtistChart, (new Constants()).DAY_REFRESH_INTERVAL);
 
